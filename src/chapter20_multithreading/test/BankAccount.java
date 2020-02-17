@@ -7,6 +7,12 @@ public class BankAccount {
         balance = 0;
     }
 
+    public BankAccount(int balance){
+        this.balance = balance;
+    }
+
+
+
     //внесение
     public void deposit(double amount){
         System.out.println("Depositing " + amount);
@@ -23,6 +29,7 @@ public class BankAccount {
         balance = newBalance;
     }
 
+    //получение баланса
     public double getBalance(){
         return balance;
     }

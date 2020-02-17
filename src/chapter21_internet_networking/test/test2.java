@@ -11,9 +11,9 @@ public class test2 {
     public static void main(String[] args) throws IOException {
         int HTTP_PORT = 80;
         String resource = "/";
-        String host = "horstmann.com";
+        String host = "google.com";
 
-        Socket s = new Socket("horstmann.com", HTTP_PORT);
+        Socket s = new Socket(host, HTTP_PORT);
 
         InputStream inputStream = s.getInputStream();
         OutputStream outputStream = s.getOutputStream();
