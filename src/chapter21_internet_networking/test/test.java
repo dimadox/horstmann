@@ -12,6 +12,8 @@ public class test {
         int HTTP_PORT = 80;
         Socket s = new Socket("horstmann.com", HTTP_PORT);
 
+
+
         InputStream inputStream = s.getInputStream();
         OutputStream outputStream = s.getOutputStream();
 
