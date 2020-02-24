@@ -7,32 +7,18 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class test2 {
+public class test4 {
     public static void main(String[] args) throws IOException {
-        int HTTP_PORT = 80;
-        String resource = "/";
-        String host = "horstmann.com";
+        Socket socket = new Socket("horstmann.com", 80);
 
-        Socket s = new Socket(host, HTTP_PORT);
-
-        InputStream inputStream = s.getInputStream();
-        OutputStream outputStream = s.getOutputStream();
+        InputStream inputStream = socket.getInputStream();
+        OutputStream outputStream = socket.getOutputStream();
 
         Scanner scanner = new Scanner(inputStream);
         PrintWriter printWriter = new PrintWriter(outputStream);
 
-        String command = "GET " + resource + " HTTP/1.1\n" + "Host: " + host + "\n\n";
-
-        printWriter.print(command);
-        printWriter.flush();
-
         while (scanner.hasNextLine()){
             System.out.println(scanner.nextLine());
         }
-
-
-
-
-
     }
 }

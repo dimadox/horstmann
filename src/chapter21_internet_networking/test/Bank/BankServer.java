@@ -1,4 +1,4 @@
-package chapter21_internet_networking.Bank;
+package chapter21_internet_networking.test.Bank;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -13,8 +13,6 @@ public class BankServer {
         ServerSocket server = new ServerSocket(SBAP_PORT);
         System.out.println("Waiting for clients to connect . . . ");
 
-
-
         while (true){
             Socket s = server.accept();
             System.out.println("Client connected.");
@@ -22,7 +20,5 @@ public class BankServer {
             Thread t = new Thread(service);
             t.start();
         }
-
     }
-
 }

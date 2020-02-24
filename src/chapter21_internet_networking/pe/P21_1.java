@@ -1,4 +1,4 @@
-package chapter21_internet_networking.test;
+package chapter21_internet_networking.pe;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,11 +7,12 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class test2 {
+public class P21_1 {
     public static void main(String[] args) throws IOException {
         int HTTP_PORT = 80;
         String resource = "/";
         String host = "horstmann.com";
+        boolean check = true;
 
         Socket s = new Socket(host, HTTP_PORT);
 
@@ -26,12 +27,13 @@ public class test2 {
         printWriter.print(command);
         printWriter.flush();
 
-        while (scanner.hasNextLine()){
+        while (scanner.hasNextLine() && check){
+//            if (scanner.nextLine().isEmpty()){
+//                check = false;
+//            }
             System.out.println(scanner.nextLine());
+
         }
-
-
-
 
 
     }
