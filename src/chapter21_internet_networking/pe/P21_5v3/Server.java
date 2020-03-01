@@ -1,15 +1,17 @@
-package chapter21_internet_networking.pe.v2.P21_5;
+package chapter21_internet_networking.pe.P21_5v3;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class Client {
+public class Server {
     public static void main(String[] args) throws IOException {
-        Socket socket = new Socket("localhost", 8898);
+        ServerSocket serverSocket = new ServerSocket(8888);
+        Socket socket = serverSocket.accept();
 
         InputStream inputStream = socket.getInputStream();
         OutputStream outputStream = socket.getOutputStream();
@@ -17,15 +19,14 @@ public class Client {
         Scanner scanner = new Scanner(inputStream);
         PrintWriter printWriter = new PrintWriter(outputStream);
 
-        Scanner s1 = new Scanner(System.in);
+        while (scanner.hasNextInt()){
+            // int i = scanner
 
+            printWriter.print(scanner.nextInt()*2 + " ");
+            printWriter.flush();
+        }
 
-        printWriter.print(s1.nextInt() + "\n");
-        //printWriter.println();
-        printWriter.flush();
-
-        System.out.println(scanner.nextInt());
-
+        socket.close();
 
     }
 }

@@ -1,4 +1,4 @@
-package chapter21_internet_networking.pe.v2.P21_5;
+package chapter21_internet_networking.pe.P21_5v3;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,23 +9,26 @@ import java.util.Scanner;
 
 public class Client {
     public static void main(String[] args) throws IOException {
-        Socket socket = new Socket("localhost", 8898);
+        Socket socket = new Socket("localhost", 8888);
 
         InputStream inputStream = socket.getInputStream();
         OutputStream outputStream = socket.getOutputStream();
 
         Scanner scanner = new Scanner(inputStream);
         PrintWriter printWriter = new PrintWriter(outputStream);
+        // printWriter.flush();
 
-        Scanner s1 = new Scanner(System.in);
+        Scanner keyboardScanner = new Scanner(System.in);
+        while (keyboardScanner.hasNextInt()){
+            int x= keyboardScanner.nextInt();
+            printWriter.print(x+"\n");
+            System.out.println("sent " + x);
+            printWriter.flush();
 
+            System.out.println(scanner.nextInt());
+        }
 
-        printWriter.print(s1.nextInt() + "\n");
-        //printWriter.println();
-        printWriter.flush();
-
-        System.out.println(scanner.nextInt());
-
+        socket.close();
 
     }
 }

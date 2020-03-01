@@ -28,10 +28,11 @@ public class P21_1 {
         printWriter.flush();
 
         while (scanner.hasNextLine() && check){
-//            if (scanner.nextLine().isEmpty()){
-//                check = false;
-//            }
-            System.out.println(scanner.nextLine());
+            String l = scanner.nextLine();
+            if (l.isEmpty()){
+                check = false;
+            }
+            System.out.println(l);
 
         }
 
